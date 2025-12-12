@@ -1,0 +1,15 @@
+add mini decorations
+
+add ghibli vibe y jazz standard piano
+
+quitar de jesus_molina la parte mas blues
+
+eliminar 6 primeros segundos de Decorations
+
+si quiero generativo , no combertir a mono? 
+
+Nota: Como usaste el modelo de ByteDance, tus MIDIs de entrenamiento tendrán velocidades y duraciones muy precisas. 
+Esto hace que suenen muy humanos, pero la partitura puede verse "fea" (muchas semicorcheas raras). 
+Necesitarás un paso de Cuantización para Notación (Quantization for notation) antes de imprimir la partitura final.
+
+Entrena al modelo para que, además de predecir la siguiente nota, preste atención a qué estilo se le está pidiendo.
