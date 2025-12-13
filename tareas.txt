@@ -1,3 +1,5 @@
+USAR RAVE
+
 add mini decorations
 
 add ghibli vibe y jazz standard piano
@@ -12,4 +14,17 @@ Nota: Como usaste el modelo de ByteDance, tus MIDIs de entrenamiento tendrán ve
 Esto hace que suenen muy humanos, pero la partitura puede verse "fea" (muchas semicorcheas raras). 
 Necesitarás un paso de Cuantización para Notación (Quantization for notation) antes de imprimir la partitura final.
 
+----DATASET-----
+-limpiar silencios
+-corregir
+
+----ESTILO-----
 Entrena al modelo para que, además de predecir la siguiente nota, preste atención a qué estilo se le está pidiendo.
+
+
+----TONALIDAD----
+De hecho, el paper de Lyria RealTime (Magenta) confirma explícitamente que usan la "Tonalidad" (Key) como uno de sus controles avanzados.
+
+La solución "Local Key" (Por Ventana): Al etiquetar la tonalidad en cada ventana (o chunk de compases), le enseñas al modelo a modular.
+Ejemplo: Ventana 1 -> [Key: Cm], Ventana 2 -> [Key: Cm], Ventana 3 -> [Key: EbM] (¡Modulación!).
+Esto permite que el modelo entienda que las reglas armónicas cambian dinámicamente a lo largo de la pieza.
