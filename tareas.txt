@@ -28,3 +28,34 @@ De hecho, el paper de Lyria RealTime (Magenta) confirma explícitamente que usan
 La solución "Local Key" (Por Ventana): Al etiquetar la tonalidad en cada ventana (o chunk de compases), le enseñas al modelo a modular.
 Ejemplo: Ventana 1 -> [Key: Cm], Ventana 2 -> [Key: Cm], Ventana 3 -> [Key: EbM] (¡Modulación!).
 Esto permite que el modelo entienda que las reglas armónicas cambian dinámicamente a lo largo de la pieza.
+
+limpiar midi dataset
+
+que detecte pedal tambien 
+
+algun modelo que cambie a midi
+
+
+REPETITION  , hacer maquina repita hasta que interiorize. 
+
+
+-------MidiTok-------:
+
+Plaintext
+
+[Position_Bar_1]   <- Contexto métrico
+[Tempo_120]        <- Velocidad global
+[TimeShift_16]     <- "Espera un momento" (Timing/Frame preciso)
+[Pitch_60]         <- La nota (Do central)
+[Velocity_85]      <- La fuerza con la que se tocó
+[Duration_4]       <- Cuánto tiempo se mantiene pulsada
+
+asegúrate de ajustar bien el parámetro time_quantization
+
+
+
+
+ADD LOSS FUNCTION AND MATRIX IN TRAINING 
+
+
+USAR ACCELERATE
