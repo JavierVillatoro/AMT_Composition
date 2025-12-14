@@ -59,3 +59,145 @@ ADD LOSS FUNCTION AND MATRIX IN TRAINING
 
 
 USAR ACCELERATE
+
+
+xFORMERS 
+
+AÑADIR OPTUNA
+
+
+
+
+-----ACTUCALIZACION A P.T-------- 
+Nota: Es vital usar la versión que guarda en .pt (tensores) y no en miles de .json sueltos, o UMAP y el entrenamiento tardarán horas en cargar.
+
+AÑADIR METRICAS DESPUES DE TRAINING
+
+dataaugmentation chopin 
+
+ENTRENAR CON MAS DATA EN LA NUBE E2C
+
+
+
+
+--------MERMAID LIVE EDITOR---------
+3. ¿Hasta dónde puede bajar?
+Zona Excelente (2.0 - 2.5): Si llega aquí, la música será muy convincente.
+
+Zona de Peligro (< 1.5): Si baja demasiado (por ejemplo a 0.8), cuidado. Significa que ha memorizado las canciones y solo está copiando y pegando lo que ya existe.
+
+Veredicto: Estás entrando en la "Zona Dulce" (Sweet Spot). Si se queda estancado en 2.8 o 2.9, ya es un modelo totalmente funcional para generar música. ¡Felicidades!
+
+Aquí tienes las respuestas directas a lo que estás viendo en tu pantalla. ¡Todo va muy bien!
+
+1. ¿Por qué los Epochs salen en decimales? (3.14, 3.21...)
+Esto es completamente normal.
+
+Epoch: Es una vuelta completa a todo tu catálogo de partituras.
+
+El decimal: Indica el progreso exacto dentro de esa vuelta.
+
+3.14: Significa que ya ha terminado la vuelta 1, la 2, la 3... y ahora mismo va por el 14% de la cuarta vuelta.
+
+Como tu batch_size es pequeño (4), necesita miles de pasos para completar una vuelta, por eso te va informando paso a paso.
+
+2. ¿Cuántos Epochs hay en total?
+Según tu configuración (num_train_epochs=10), el entrenamiento terminará cuando ese número llegue a 10.0.
+
+Ahora mismo vas por el 3.33 (un tercio del camino).
+
+Si llevas unas 3 horas (aprox), te quedan unas 6 horas más si mantiene el ritmo.
+
+3. ¿Hay "Early Stopping" (Parada automática)?
+No, en tu código actual no activaste el EarlyStoppingCallback.
+
+Lo que pasará: El modelo seguirá entrenando ciegamente hasta llegar al Epoch 10, pase lo que pase.
+
+¿Es grave? No. Con un dataset complejo como Chopin y solo 10 épocas, es muy raro que el modelo "se pase de listo" (overfitting) tan rápido. Lo más probable es que siga mejorando hasta el final.
+
+
+
+
+
+
+
+-----------4. ¿Me quedo con el mejor modelo? (IMPORTANTE)----------------
+
+Tal y como está tu código (trainer.save_model(OUTPUT_DIR) al final), el archivo que se guardará en model_final será el del último paso del Epoch 10.
+
+¿Qué pasa si el mejor modelo fue en el Epoch 5 y luego empeoró? No te preocupes. Hugging Face guarda automáticamente Checkpoints (puntos de guardado).
+
+Ve a tu carpeta model_final (o output_dir).
+
+Verás carpetas llamadas checkpoint-500, checkpoint-1000, checkpoint-1500, etc.
+
+Cada una de esas carpetas es un modelo completo.
+
+Si al terminar ves que el modelo final desvaría, podrás borrarlo y quedarte con la carpeta checkpoint-X que tuviera la loss más baja.
+
+
+
+
+
+
+
+3. La Solución Arquitectónica: Transformer-XL
+GPT-2 es un modelo "Standard Transformer". Hay modelos diseñados específicamente para tener memoria infinita (o muy larga).
+Transformer-XL:
+Funciona igual que GPT-2, pero tiene una "memoria caché".
+Cuando termina de leer los primeros 512 tokens, no los borra. Los comprime y se los pasa al siguiente bloque como "apuntes".
+Esto permite que el modelo recuerde cosas que pasaron hace miles de pasos sin gastar tanta memoria RAM.
+
+
+
+
+--------USAR BPE PARA EL SIGUIENTE PROYECTO-------- RECUERDA MEJORfrom miditok import REMI, TokenizerConfig
+# 1. Creas el tokenizador
+tokenizer = REMI(TokenizerConfig(use_bpe=True)) # <--- Activar BPE
+
+# 2. El tokenizador debe "leer" todos los MIDI primero para aprender vocabulario
+tokenizer.train(vocab_size=30000, files_paths=midi_paths)
+
+
+
+
+
+
+
+
+CARGAR MEJOR CHECKPOINT ---MODELOOOOOOOOO
+
+
+
+
+
+
+
+---------TRANSFER LEARNING-----------
+6. Plan óptimo después de que termine
+Opción ideal
+
+Carga el mejor checkpoint
+
+Continúa entrenamiento con:
+
+padding fix (si quieres)
+
+LR × 0.5
+
+load_best_model_at_end=True
+
+5–10 epochs más
+
+Esto es transfer learning sobre tu propio modelo.
+
+
+
+
+
+
+En próximos trainings, usar SIEMPRE:
+
+load_best_model_at_end=True
+metric_for_best_model="eval_loss"
+greater_is_better=False
