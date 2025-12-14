@@ -231,3 +231,16 @@ VER VENTANA DESLIZANTE PARA GENERAR MAS TIEMPO
 
 
 -------MEJORAR LO DE MICROTIMING , VER PAPER HPPNET--------
+5. ¿Hay una opción más radical? (Structured vs. TimeShift)
+Actualmente estás usando el tokenizador REMI (que usa Compases y Posiciones). Es muy estable, pero siempre tiene una estructura de "compás".
+
+Si, tras probar la configuración de 96, sientes que sigue siendo "demasiado organizado", podrías cambiar de tokenizador a 
+uno llamado TSD (Time-Shift Duration) o MIDI-Like.
+
+TSD no sabe qué es un compás. Solo sabe: "Nota On -> Esperar X milisegundos -> Nota Off".
+Es puramente relativo. Es lo más parecido a "no hay tiempo, solo flujo".
+Riesgo: Es más difícil de entrenar. La IA puede perderse y perder el ritmo por completo (sonar borracha).
+
+Mi consejo: Quédate con REMI pero sube la resolución a 96 (como en el código de arriba). 
+Es el equilibrio perfecto: la IA sabe dónde está el compás (para no perderse) pero tiene suficiente libertad (resolución) para bailar alrededor del 
+tiempo y hacer rubato.
