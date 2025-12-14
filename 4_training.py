@@ -15,7 +15,7 @@ OUTPUT_DIR = Path("./model_final")
 USE_OPTUNA_PARAMS = True
 VALIDATION_SPLIT = 0.1  # 10% para validar
 
-# --- CLASES NECESARIAS (Copiadas del fix anterior) ---
+# --- CLASES N  ECESARIAS (Copiadas del fix anterior) ---
 class ChopinDataset(Dataset):
     def __init__(self, data_tensor):
         self.data = data_tensor

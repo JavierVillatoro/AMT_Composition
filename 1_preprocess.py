@@ -15,11 +15,14 @@ def preprocess():
     # 1. Configuración del Tokenizador
     config = TokenizerConfig(
         pitch_range=(21, 109),
-        beat_res={(0, 4): 32, (4, 12): 16},   #1/32 , resolucion alta
-        num_velocities=32,
+        #beat_res={(0, 4): 32, (4, 12): 16},#1/32 , Subir 96/32
+        beat_res={(0, 4): 96, (4, 12): 32},
+        #num_velocities=32,                    #Subir a 64
+        num_velocities=64,
         use_chords=True,
         use_programs=False,
         use_tempos=True,
+        use_sustain_pedals=True,
     )
 
     tokenizer = REMI(config)

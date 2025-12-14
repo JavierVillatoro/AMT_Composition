@@ -201,3 +201,33 @@ En próximos trainings, usar SIEMPRE:
 load_best_model_at_end=True
 metric_for_best_model="eval_loss"
 greater_is_better=False
+
+
+
+
+VER VENTANA DESLIZANTE PARA GENERAR MAS TIEMPO
+
+
+
+
+
+
+{'loss': 2.3734, 'grad_norm': 1.3140482902526855, 'learning_rate': 4.233097515472497e-06, 'epoch': 4.9}
+{'loss': 2.317, 'grad_norm': 1.233449935913086, 'learning_rate': 2.918470957872343e-06, 'epoch': 4.93}
+{'eval_loss': 2.398432731628418, 'eval_runtime': 41.1778, 'eval_samples_per_second': 17.485, 'eval_steps_per_second': 4.371, 'epoch': 4.93}
+{'loss': 2.3493, 'grad_norm': 1.302978277206421, 'learning_rate': 1.6301369314241914e-06, 'epoch': 4.96}
+{'loss': 2.3629, 'grad_norm': 1.4188951253890991, 'learning_rate': 3.155103738240371e-07, 'epoch': 4.99}
+{'eval_loss': 2.3975398540496826, 'eval_runtime': 41.0533, 'eval_samples_per_second': 17.538, 'eval_steps_per_second': 4.385, 'epoch': 4.99}
+{'train_runtime': 8687.4941, 'train_samples_per_second': 3.734, 'train_steps_per_second': 0.934, 'train_loss': 2.5209284788289286, 'epoch': 5.0}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8110/8110 [2:24:47<00:00,  1.07s/it]
+💾 Guardando modelo de Transfer Learning en: model_transfer
+📈 Gráfica guardada en: model_transfer\training_loss_transfer.png
+✅ ¡Entrenamiento ADICIONAL completado!
+
+
+
+
+
+
+
+-------MEJORAR LO DE MICROTIMING , VER PAPER HPPNET--------

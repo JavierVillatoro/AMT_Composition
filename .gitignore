@@ -5,3 +5,4 @@ Pipeline.PNG
 data_processed/
 model_final/
 Dataset.csv
+model_transfer/
