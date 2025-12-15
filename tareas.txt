@@ -244,3 +244,8 @@ Riesgo: Es más difícil de entrenar. La IA puede perderse y perder el ritmo por
 Mi consejo: Quédate con REMI pero sube la resolución a 96 (como en el código de arriba). 
 Es el equilibrio perfecto: la IA sabe dónde está el compás (para no perderse) pero tiene suficiente libertad (resolución) para bailar alrededor del 
 tiempo y hacer rubato.
+
+
+
+
+------REMOTE SSH--------
