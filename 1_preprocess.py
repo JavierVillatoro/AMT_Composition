@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 # --- CONFIGURACIÓN ---
 MIDI_PATHS = Path("./dataset/clean_midi")
-SAVE_DIR = Path("./data_processed")
+SAVE_DIR = Path("./data_processed_96quantized")
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 SEQ_LEN = 512  # Tamaño de contexto para GPT-2
 

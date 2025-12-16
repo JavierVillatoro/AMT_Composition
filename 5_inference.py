@@ -8,7 +8,7 @@ from symusic import Score, Track, Note, Tempo
 
 # --- CONFIGURACIÓN Y CONSTANTES GLOBALES ---
 MODEL_PATH = Path("./model_final")
-OUTPUT_DIR = Path("./generated_music")
+OUTPUT_DIR = Path("./generated_music_prueba")
 OUTPUT_DIR.mkdir(exist_ok=True)
 TICKS_PER_BEAT = 960 
 MAX_CONTEXT = 512
